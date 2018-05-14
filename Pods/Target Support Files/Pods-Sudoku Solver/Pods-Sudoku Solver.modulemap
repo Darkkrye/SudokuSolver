@@ -1,0 +1,6 @@
+framework module Pods_Sudoku_Solver {
+  umbrella header "Pods-Sudoku Solver-umbrella.h"
+
+  export *
+  module * { export * }
+}
