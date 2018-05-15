@@ -1,0 +1,6 @@
+framework module Pods_Solvr {
+  umbrella header "Pods-Solvr-umbrella.h"
+
+  export *
+  module * { export * }
+}
