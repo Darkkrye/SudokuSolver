@@ -13,6 +13,10 @@
 #import "NorvigSolver.h"
 #import "EricaSadanCookbook.h"
 
+@interface ViewController() <ARSCNViewDelegate>
+
+@end
+
 @implementation ViewController
 
 BOOL usingSampleImage = NO;
@@ -67,11 +71,21 @@ NSString* solutionForBoard = @"";
         self.backgroundImage.image = [UIImage imageNamed:@"SampleImage"];
         usingSampleImage = YES;
     }
+    
+    self.akSceneView.delegate = self;
+    self.akSceneView.frame = CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.height);
 }
 
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+//    ARConfiguration* configuration = [[ARWorldTrackingConfiguration alloc] init];
+//    [self.akSceneView.session runWithConfiguration:configuration];
 }
 
 // Results Board Webview
@@ -110,6 +124,9 @@ NSString* solutionForBoard = @"";
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 UIImage* image = [self captureWebView:self.board];
                 [self.imageV setImage:image];
+                [self.imageV setHidden:YES];
+                
+                [self showFeedback:@"OK ! Cliquez pour faire apparaître la solution" withDuration:2.0];
             });
             
             /*[UIView animateWithDuration:0.3 animations:^(void) {
@@ -117,6 +134,42 @@ NSString* solutionForBoard = @"";
             }];*/
         }
     }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    ARWorldTrackingConfiguration* configuration = [[ARWorldTrackingConfiguration alloc] init];
+    configuration.planeDetection = ARPlaneAnchorAlignmentHorizontal;
+    [self.akSceneView.session runWithConfiguration:configuration];
+    
+    UITouch* touch = touches.allObjects.firstObject;
+    NSArray<ARHitTestResult*>* results = [self.akSceneView hitTest:[touch locationInView:self.akSceneView] types:ARHitTestResultTypeFeaturePoint];
+    ARHitTestResult *result = results.firstObject;
+    matrix_float4x4 transform = result.worldTransform;
+    SCNMatrix4 matrix = SCNMatrix4FromMat4(transform);
+    SCNVector3 position = SCNVector3Make(matrix.m41, matrix.m42, matrix.m43);
+    
+    [self.akSceneView.scene.rootNode addChildNode:[self createNodeAt:position]];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self.backgroundImage setHidden:YES];
+    });
+}
+
+- (SCNNode*) createNodeAt:(SCNVector3)position {
+    SCNPlane* geometry = [[SCNPlane alloc] init];
+    geometry.width = 0.025;
+    geometry.height = 0.025;
+    
+    SCNMaterial* material = [[SCNMaterial alloc] init];
+    material.diffuse.contents = self.imageV.image;
+    
+    geometry.firstMaterial = material;
+    
+    SCNNode* node = [[SCNNode alloc] init];
+    node.geometry = geometry;
+    node.position = position;
+    
+    return node;
 }
 
 - (UIImage*) captureWebView: (UIWebView*)webView {
@@ -146,6 +199,11 @@ NSString* solutionForBoard = @"";
     if( self.board.hidden == NO ) {
         [self.omnibutton setTitle:@"Press to Solve" forState:UIControlStateNormal];
         [self update:empty_board withSolution:empty_board];
+        [self.backgroundImage setHidden:NO];
+        for (SCNNode* node in self.akSceneView.scene.rootNode.childNodes) {
+            [node removeFromParentNode];
+        }
+        [self.akSceneView.session pause];
         return;
     }
 

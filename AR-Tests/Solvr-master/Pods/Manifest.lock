@@ -1,0 +1,15 @@
+PODS:
+  - OpenCV (2.4.9)
+  - TesseractOCRiOS (3.4.0)
+
+DEPENDENCIES:
+  - OpenCV (= 2.4.9.0)
+  - TesseractOCRiOS
+
+SPEC CHECKSUMS:
+  OpenCV: bb17904e55fc19b1f0f6c3e29bc04a7dd31eddb9
+  TesseractOCRiOS: cd79d4ce9d4c0f1e2776db8820cf8239e5569592
+
+PODFILE CHECKSUM: aeea9788a976fd929108b7735181fd531c93fd66
+
+COCOAPODS: 1.4.0

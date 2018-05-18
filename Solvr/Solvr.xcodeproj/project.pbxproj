@@ -21,6 +21,10 @@
 		836E260B19FDB0BB00ACDF38 /* ComputerVision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 836E260A19FDB0BB00ACDF38 /* ComputerVision.mm */; };
 		8396E2C91A074CAF0070AA29 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 8396E2C81A074CAF0070AA29 /* tessdata */; };
 		8F05F42420AAEB8900283C05 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F05F42320AAEB8900283C05 /* ARKit.framework */; };
+		8F0670B820AAF1E600A9E5E4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0670B720AAF1E600A9E5E4 /* CoreVideo.framework */; };
+		8F0670BA20AAF1ED00A9E5E4 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0670B920AAF1ED00A9E5E4 /* AssetsLibrary.framework */; };
+		8F0670BC20AAF1F800A9E5E4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0670BB20AAF1F800A9E5E4 /* CoreMedia.framework */; };
+		8F0670BE20AAF29400A9E5E4 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0670BD20AAF29400A9E5E4 /* SceneKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 		8396E2C81A074CAF0070AA29 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		839F48F11A5357670011BD43 /* EricaSadanCookbook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EricaSadanCookbook.h; sourceTree = "<group>"; };
 		8F05F42320AAEB8900283C05 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		8F0670B720AAF1E600A9E5E4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		8F0670B920AAF1ED00A9E5E4 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		8F0670BB20AAF1F800A9E5E4 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		8F0670BD20AAF29400A9E5E4 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		9A13F37D50BAA7C94FC55857 /* Pods-Solvr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solvr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Solvr/Pods-Solvr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F0670BE20AAF29400A9E5E4 /* SceneKit.framework in Frameworks */,
+				8F0670BC20AAF1F800A9E5E4 /* CoreMedia.framework in Frameworks */,
+				8F0670BA20AAF1ED00A9E5E4 /* AssetsLibrary.framework in Frameworks */,
+				8F0670B820AAF1E600A9E5E4 /* CoreVideo.framework in Frameworks */,
 				8F05F42420AAEB8900283C05 /* ARKit.framework in Frameworks */,
 				8310D6381A4D80EE00B58017 /* AVFoundation.framework in Frameworks */,
 				5878B03E0109DB88B861F3FD /* Pods_Solvr.framework in Frameworks */,
@@ -94,6 +106,10 @@
 		81B9AD62C21965586183280E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F0670BD20AAF29400A9E5E4 /* SceneKit.framework */,
+				8F0670BB20AAF1F800A9E5E4 /* CoreMedia.framework */,
+				8F0670B920AAF1ED00A9E5E4 /* AssetsLibrary.framework */,
+				8F0670B720AAF1E600A9E5E4 /* CoreVideo.framework */,
 				8F05F42320AAEB8900283C05 /* ARKit.framework */,
 				8310D6371A4D80EE00B58017 /* AVFoundation.framework */,
 				82220A0D1A4D5196F3C624BA /* Pods_Solvr.framework */,
@@ -224,7 +240,7 @@
 		836E25D619F4C35900ACDF38 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Chris Lewis";
 				TargetAttributes = {
 					836E25DD19F4C35900ACDF38 = {
@@ -388,21 +404,33 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -431,13 +459,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -446,6 +484,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -470,7 +509,42 @@
 				DEVELOPMENT_TEAM = 63ZVUM2RC3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Solvr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-weak_library",
+					"/usr/lib/libstdc++.6.0.9.dylib",
+					"-l\"lept\"",
+					"-l\"stdc++\"",
+					"-l\"tesseract_all\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"TesseractOCR\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"opencv2\"",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.boudonpierre.Solvr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Solvr/Solvr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -487,7 +561,42 @@
 				DEVELOPMENT_TEAM = 63ZVUM2RC3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Solvr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-weak_library",
+					"/usr/lib/libstdc++.6.0.9.dylib",
+					"-l\"lept\"",
+					"-l\"stdc++\"",
+					"-l\"tesseract_all\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"TesseractOCR\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"opencv2\"",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.boudonpierre.Solvr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Solvr/Solvr-Bridging-Header.h";
 			};
@@ -507,6 +616,7 @@
 				);
 				INFOPLIST_FILE = SolvrTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "clewis.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Solvr.app/Solvr";
 			};
@@ -522,6 +632,7 @@
 				);
 				INFOPLIST_FILE = SolvrTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "clewis.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Solvr.app/Solvr";
 			};

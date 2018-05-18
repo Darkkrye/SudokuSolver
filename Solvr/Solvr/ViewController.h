@@ -8,6 +8,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
+#import <ARKit/ARKit.h>
 
 @interface ViewController : UIViewController <UIWebViewDelegate>
 
@@ -15,6 +16,7 @@
 @property (retain, nonatomic) IBOutlet UIWebView* board;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint* boardSpacing;
 @property (weak, nonatomic) IBOutlet UIImageView *imageV;
+@property (nonatomic) IBOutlet ARSCNView* akSceneView;
 
 // feedback label
 @property (retain, nonatomic) IBOutlet UILabel* feedback;
